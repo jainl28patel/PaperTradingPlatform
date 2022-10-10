@@ -1,11 +1,15 @@
-import React from 'react'
-import Navbar from './Navbar/Navbar'
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import Navbar from "./Navbar/Navbar";
+import BaseRouter from "./Routes";
+
 
 function Platform() {
   return (
-    <div>
-        <Navbar/>
-    </div>
+    <Router>
+      <Navbar />
+      <BaseRouter />
+    </Router>
   )
 }
 

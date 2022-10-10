@@ -1,11 +1,13 @@
 import './App.css';
-import Platform from './components/Platform';
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import Platform from "./components/Platform";
 
 function App() {
   return (
-    <div className="App">
-      <Platform/>
-    </div>
+    <Provider store={store}>
+      <Platform />
+    </Provider>
   );
 }
 
