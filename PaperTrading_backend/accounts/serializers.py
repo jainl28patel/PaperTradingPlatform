@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from .models import UserDetail
 from django.contrib.auth import authenticate ,login, logout
 from django.contrib.auth.password_validation import validate_password
 
@@ -19,5 +20,18 @@ class RegisterSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password')
+        fields = ('id', 'username')
 
+    def get(self, username):
+        user = User.objects.all().filter(username=username)
+        return user
+
+class JwtSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserDetail
+        fields = ('id', 'username', 'jwt_token')
+
+    def create(self, data):
+        print("hello world")
+        user = UserDetail.objects.create(id=data['id'], username=data['username'], jwt_token=data['jwt_token'])
+        return user
