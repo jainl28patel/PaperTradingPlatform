@@ -40,7 +40,14 @@ INSTALLED_APPS = [
     'trading.apps.TradingConfig',
     'accounts.apps.AccountsConfig',
     'rest_framework',
+    'corsheaders',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',``
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'PaperTrading_backend.urls'
