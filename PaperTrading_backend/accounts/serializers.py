@@ -31,7 +31,3 @@ class JwtSerializer(serializers.ModelSerializer):
         model = UserDetail
         fields = ('id', 'username', 'jwt_token')
 
-    def create(self, data):
-        print("hello world")
-        user = UserDetail.objects.create(id=data['id'], username=data['username'], jwt_token=data['jwt_token'])
-        return user
