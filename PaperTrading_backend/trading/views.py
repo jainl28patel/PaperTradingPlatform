@@ -103,16 +103,22 @@ def bookmark(request):
     jwt_token = request.data['jwt_token']
     user_data = UserDetail.objects.get(jwt_token=jwt_token)
     username_id = JwtSerializer(user_data)
-    serializer_bookmark = BookmarkSerializer(data={
-        'username': username_id.data['username'],
-        'user_id': username_id.data['id'],
-        'stock_name': request.data['stock_name'],
-        'stock_price': request.data['stock_price']
-    })
-    if serializer_bookmark.is_valid():
-        serializer_bookmark.save()
-        return Response(serializer_bookmark.data, status=status.HTTP_201_CREATED)
-    return Response(serializer_bookmark.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    #checking if already bookmarked or not 
+    bookmark = Bookmark.objects.filter(user_id=username_id.data['id'], stock_name=request.data['stock_name'])
+    if(len(bookmark)==0):
+        serializer_bookmark = BookmarkSerializer(data={
+            'username': username_id.data['username'],
+            'user_id': username_id.data['id'],
+            'stock_name': request.data['stock_name'],
+            'stock_price': request.data['stock_price'],
+        })
+        if serializer_bookmark.is_valid():
+            serializer_bookmark.save()
+            return Response(serializer_bookmark.data, status=status.HTTP_201_CREATED)
+        return Response(serializer_bookmark.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return Response({'error': 'Already bookmarked'}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def getbalance(request):
