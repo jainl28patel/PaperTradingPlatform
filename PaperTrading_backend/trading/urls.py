@@ -8,5 +8,5 @@ urlpatterns = [
     path('getbalance/',views.getbalance,name="index"),
     path('gettransaction/',views.gettransaction,name="index"),
     path('getbookmark/',views.getbookmark,name="index"),
+    path('getstock/',views.getstock,name="index")
 ]
-

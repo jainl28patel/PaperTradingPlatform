@@ -140,3 +140,12 @@ def getbookmark(request):
 
     serializer_bookmark = BookmarkSerializer(Bookmark.objects.filter(user_id=username_id.data['id']), many=True)
     return Response(serializer_bookmark.data, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+def getstock(request):
+    jwt_token = request.data['jwt_token']
+    user_data = UserDetail.objects.get(jwt_token=jwt_token)
+    username_id = JwtSerializer(user_data)
+
+    serializer_stocks = BuySerializer(Buy.objects.filter(user_id=username_id.data['id']), many=True)
+    return Response(serializer_stocks.data, status=status.HTTP_200_OK)
