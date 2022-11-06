@@ -122,3 +122,21 @@ def getbalance(request):
 
     serializer_balance = BalanceSerializer(Balance.objects.get(user_id=username_id.data['id']))
     return Response(serializer_balance.data, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+def gettransaction(request):
+    jwt_token = request.data['jwt_token']
+    user_data = UserDetail.objects.get(jwt_token=jwt_token)
+    username_id = JwtSerializer(user_data)
+
+    serializer_transaction = TransactionSerializer(Transaction.objects.filter(user_id=username_id.data['id']), many=True)
+    return Response(serializer_transaction.data, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+def getbookmark(request):
+    jwt_token = request.data['jwt_token']
+    user_data = UserDetail.objects.get(jwt_token=jwt_token)
+    username_id = JwtSerializer(user_data)
+
+    serializer_bookmark = BookmarkSerializer(Bookmark.objects.filter(user_id=username_id.data['id']), many=True)
+    return Response(serializer_bookmark.data, status=status.HTTP_200_OK)
