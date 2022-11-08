@@ -77,7 +77,7 @@ def sell(request):
             if not serializer_buy.is_valid():
                 return Response(serializer_buy.errors, status=status.HTTP_400_BAD_REQUEST)
             
-            new_balance = int(stock_serializer.data['stock_price'])*int(request.data['stock_quantity']) + int(Balance.objects.get(user_id=username_id.data['id']).balance)
+            new_balance = int(request.data['stock_price'])*int(request.data['stock_quantity']) + int(Balance.objects.get(user_id=username_id.data['id']).balance)
             balance_serializer = BalanceSerializer(Balance.objects.get(user_id=username_id.data['id']), data={'balance': new_balance}, partial=True)
             if balance_serializer.is_valid():
                 balance_serializer.save()
@@ -94,7 +94,7 @@ def sell(request):
     if serializer_buy.is_valid() and serializer_transaction.is_valid():
         serializer_buy.save()
         serializer_transaction.save()
-        return Response({'buy':serializer_buy.data,'transaction':serializer_transaction.data}, status=status.HTTP_201_CREATED)
+        return Response({'sell':serializer_buy.data,'transaction':serializer_transaction.data}, status=status.HTTP_201_CREATED)
     return Response(serializer_buy.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
