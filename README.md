@@ -21,6 +21,7 @@ The Platform constists of mainly 6 different sections
 # How to Setup
 * Clone the repository 
 * Open the frontend folder in Termainal and run ``npm install``. Make sure you have node installed in your system
+* Go to [RapidAPI](https://rapidapi.com/hub) make a account, generate an API key and paste that key in the .env file in frontend folder
 * Now go to the backend folder in terminal 
 * Setup virtual environment for Django. For help you can refer this [link](https://www.w3schools.com/django/django_getstarted.php)
 * Run server using `python manage.py runserver`
