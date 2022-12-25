@@ -61,6 +61,6 @@ The Platform constists of mainly 6 different sections
 
 ### Sell
 ![](https://i.imgur.com/VxEEeQn.png)
-`
+
 ### Bookmark Window
 ![](https://i.imgur.com/K8PFHb4.jpg)
