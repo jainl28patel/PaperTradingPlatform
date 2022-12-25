@@ -1,0 +1,53 @@
+.home-container {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(180deg, #000000 0%, #321570 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.home-container .box-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.home-container .box-2 {
+  flex-grow: 1;
+}
+
+.home-container .c-card {
+  background-color: inherit;
+  color: white;
+  border: none;
+  width: 70%;
+}
+
+.home-container .c-btn {
+  background-color: #ffffff;
+  color: black;
+}
+
+.home-container .c-btn:hover {
+  background-color: #968ef7;
+  color: white;
+}
+
+.home-container .box-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.promotion-img {
+  width: 70%;
+  height: 70%;
+  margin: auto;
+}
+
+.signout:hover img {
+  background-color: #ffffff;
+  border-radius: 100%;
+}

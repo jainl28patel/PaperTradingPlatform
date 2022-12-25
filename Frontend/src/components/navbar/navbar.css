@@ -1,0 +1,52 @@
+.cnavbar {
+  background-color: #321570;
+  color: white;
+}
+
+.bd {
+  border: 1px solid rgb(255, 0, 0);
+}
+
+.list-group-item a {
+  color: white;
+}
+
+.canvas-bg {
+  background-image: linear-gradient(180deg, #000000 0%, #321570 100%);
+}
+
+.list-group li {
+  background-color: inherit;
+  border: none;
+}
+
+.canvas-header {
+  background-color: #000001;
+  color: white;
+}
+
+.list-group li:hover a {
+  color: #7a30d8;
+  background-color: #ffffff;
+}
+
+.list-group .active {
+  color: #7a30d8;
+}
+
+.orgname {
+  color: white;
+}
+
+.orgname:hover {
+  color: wheat;
+}
+
+.about-us-icon {
+  border: 1px solid white;
+  border-radius: 100%;
+}
+
+.logout:hover {
+  cursor: pointer;
+}

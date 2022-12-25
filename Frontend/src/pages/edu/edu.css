@@ -1,0 +1,51 @@
+.edu-cont {
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.row .card-cont .c-card {
+  width: 80%;
+  height: 80%;
+}
+
+.row .card-cont {
+  height: 40vh;
+}
+
+.row .card-cont .c-card:hover {
+  transform: scale(1.1);
+}
+
+.row .card-cont .c-card {
+  background-image: linear-gradient(180deg, #000000 0%, #321570 100%);
+}
+
+.about-div {
+  height: 85vh;
+  width: 100%;
+}
+
+.upper-div {
+  height: 60vh;
+  width: 100%;
+}
+
+.about-img {
+  height: 30vh;
+  width: 24%;
+  border: 1px solid black;
+}
+
+.about-content {
+  height: 100%;
+  width: 60%;
+}
+
+.about-footer {
+  height: 20vh;
+  width: 100%;
+}
